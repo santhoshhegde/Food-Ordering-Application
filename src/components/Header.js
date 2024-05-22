@@ -1,16 +1,26 @@
 import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  console.log(useState());
   return (
     <header>
       <img src="https://foodvilla.no/src/img/logo.png" />
       <nav>
         <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+
+          <li>
+            <NavLink to="about">About</NavLink>
+          </li>
+          <li>
+            <Link to="contact">Contact</Link>
+          </li>
+          <li>
+            <Link to="instamart">Instamart</Link>
+          </li>
           <li>Cart</li>
         </ul>
       </nav>

@@ -1,12 +1,9 @@
 import Restaurant from "./Restaurant";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
-
-function search(searchText, restaurant) {
-  return restaurant.filter((resto) => {
-    return resto.info.name.toLowerCase().includes(searchText.toLowerCase());
-  });
-}
+import { Link } from "react-router-dom";
+import useOnlineStatus from "../../utils/Hooks/useOnlineStatus";
+import { search } from "../../utils/helper";
 
 const Body = () => {
   const [searchText, setSearchText] = useState("");
@@ -14,12 +11,7 @@ const Body = () => {
   const [filtered, setFiltered] = useState([]);
 
   useEffect(() => {
-    console.log("useEffect 1");
     getRestaurant();
-  }, []);
-
-  useEffect(() => {
-    console.log("useEffect 2....");
   }, []);
 
   async function getRestaurant() {
@@ -34,7 +26,13 @@ const Body = () => {
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   }
-  console.log("render");
+
+  const isOnline = useOnlineStatus();
+
+  if (!isOnline) {
+    return <h1>offline</h1>;
+  }
+
   if (!allRestaurant)
     return <h1>Something went wrong please refersh the page</h1>;
 
@@ -65,7 +63,12 @@ const Body = () => {
       </div>
       <div className="restaurant-list">
         {filtered.map((restaurant) => (
-          <Restaurant {...restaurant.info} key={restaurant.info.id} />
+          <Link
+            to={"restaurant/" + restaurant.info.id}
+            key={restaurant.info.id}
+          >
+            <Restaurant {...restaurant.info} />
+          </Link>
         ))}
       </div>
     </>

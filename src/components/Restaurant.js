@@ -1,4 +1,4 @@
-import { imga } from "../config";
+import { imga } from "../../utils/constants";
 
 const Restaurant = ({ name, cuisines, avgRating, cloudinaryImageId }) => {
   return (
