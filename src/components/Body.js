@@ -61,7 +61,7 @@ const Body = () => {
           Search
         </button>
       </div>
-      <div className="restaurant-list">
+      <div className="flex flex-wrap">
         {filtered.map((restaurant) => (
           <Link
             to={"restaurant/" + restaurant.info.id}

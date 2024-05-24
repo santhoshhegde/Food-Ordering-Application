@@ -4,24 +4,24 @@ import { Link, NavLink } from "react-router-dom";
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
-    <header>
-      <img src="https://foodvilla.no/src/img/logo.png" />
+    <header className="flex justify-between">
+      <img src="https://foodvilla.no/src/img/logo.png" className="h-14" />
       <nav>
-        <ul>
-          <li>
+        <ul className="flex">
+          <li className="p-3">
             <Link to="/">Home</Link>
           </li>
 
-          <li>
+          <li className="p-3">
             <NavLink to="about">About</NavLink>
           </li>
-          <li>
+          <li className="p-3">
             <Link to="contact">Contact</Link>
           </li>
-          <li>
+          <li className="p-3">
             <Link to="instamart">Instamart</Link>
           </li>
-          <li>Cart</li>
+          <li className="p-3">Cart</li>
         </ul>
       </nav>
       {isLoggedIn ? (
