@@ -42,7 +42,7 @@ const Body = () => {
     <h1>No match found</h1>
   ) : (
     <>
-      <div className="search-bar">
+      <div className=" bg-pink-100 my-1">
         <input
           type="text"
           placeholder="search"
@@ -50,8 +50,10 @@ const Body = () => {
           onChange={(e) => {
             setSearchText(e.target.value);
           }}
+          className="p-1 m-2"
         />
         <button
+          className="bg-purple-900 text-white p-1 rounded-lg"
           onClick={() => {
             let data = [];
             data = search(searchText, allRestaurant);
@@ -61,7 +63,7 @@ const Body = () => {
           Search
         </button>
       </div>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap justify-center">
         {filtered.map((restaurant) => (
           <Link
             to={"restaurant/" + restaurant.info.id}

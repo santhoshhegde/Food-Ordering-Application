@@ -25,12 +25,12 @@ const RestaurantMenu = () => {
   ) : (
     <>
       <h1>RestaurantMenu : {restId}</h1>
-      <div className="menu">
+      <div className="flex">
         <img
           src={imga + restaurantMenu.cards[2].card.card.info.cloudinaryImageId}
-          height={400}
+          className="h-80 m-10"
         />
-        <ul>
+        <ul className="list-decimal">
           {categories[0].card.card.itemCards.map((item) => (
             <li key={item.card.info.id}>{item.card.info.name}</li>
           ))}

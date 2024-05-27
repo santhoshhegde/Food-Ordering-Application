@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
-    <header className="flex justify-between">
+    <header className="flex justify-between bg-yellow-100">
       <img src="https://foodvilla.no/src/img/logo.png" className="h-14" />
       <nav>
         <ul className="flex">
