@@ -5,6 +5,7 @@ import Shimmer from "./Shimmer";
 import useRestaurantMenu from "../../utils/Hooks/useRestaurantMenu";
 import { useDispatch } from "react-redux";
 import { addItem } from "../../utils/cartSlice";
+import ItemCategory from "./ItemCategory";
 
 const RestaurantMenu = () => {
   const { restId } = useParams();
@@ -33,7 +34,7 @@ const RestaurantMenu = () => {
   ) : (
     <div className="mt-24">
       <h1>RestaurantMenu : {restId}</h1>
-      <div className="flex">
+      <div>
         <img
           src={imga + restaurantMenu.cards[2].card.card.info.cloudinaryImageId}
           className="h-80 m-10"
@@ -41,7 +42,8 @@ const RestaurantMenu = () => {
         <ul className="list-decimal">
           {categories[0].card.card.itemCards.map((item) => (
             <>
-              <li key={item.card.info.id}>
+              <ItemCategory {...item} />
+              {/* <li key={item.card.info.id}>
                 {item.card.info.name}
                 <button
                   className="bg-green-400"
@@ -49,7 +51,7 @@ const RestaurantMenu = () => {
                 >
                   Add
                 </button>
-              </li>
+              </li> */}
             </>
           ))}
         </ul>
