@@ -28,7 +28,9 @@ const RestaurantMenu = () => {
     dispatch(addItem(itemName));
     console.log(itemName);
   };
-
+  console.log(
+    "aksjdhfkjsdf" + categories[0].card.card.itemCards[0].card.info.name
+  );
   return !restaurantMenu ? (
     <Shimmer />
   ) : (
@@ -39,22 +41,30 @@ const RestaurantMenu = () => {
           src={imga + restaurantMenu.cards[2].card.card.info.cloudinaryImageId}
           className="h-80 m-10"
         />
-        <ul className="list-decimal">
-          {categories[0].card.card.itemCards.map((item) => (
-            <>
-              <ItemCategory {...item} />
-              {/* <li key={item.card.info.id}>
-                {item.card.info.name}
-                <button
-                  className="bg-green-400"
-                  onClick={() => addItemToCart(item.card.info)}
-                >
-                  Add
-                </button>
-              </li> */}
-            </>
+        <div>
+          {categories.map((category) => (
+            <ItemCategory category={category} />
           ))}
-        </ul>
+        </div>
+        {/* <ul className="list-decimal">
+          {
+            categories.map((category) => (
+              <div>
+                <h1
+                  className="font-bold text-3xl"
+                  key={category.card.card.title}
+                >
+                  {category.card.card.title}
+                </h1>
+                <ul>
+                  {category.card.card.itemCards.map((item) => (
+                    <li key={item.card.info.id}>{item.card.info.name}</li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          }
+        </ul> */}
       </div>
     </div>
   );
