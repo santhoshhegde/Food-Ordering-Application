@@ -7,7 +7,7 @@ const Cart = () => {
   return cartItem.length == 0 ? (
     <h1>Cart Empty</h1>
   ) : (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap mt-24 min-h-[76vh]">
       {cartItem.map((item) => (
         <FoodCart {...item}></FoodCart>
       ))}

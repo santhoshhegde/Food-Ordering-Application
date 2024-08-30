@@ -3,11 +3,14 @@ import veg from "../Assets/veg-icon.png";
 import nonveg from "../Assets/nonveg-icon.png";
 import DownArrow from "../Assets/svg/arrow-down.svg";
 import UpArrow from "../Assets/svg/arrow-up.svg";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../utils/cartSlice";
 
 const ItemCategory = ({ category }) => {
   const [isShow, setIsShow] = useState(true);
+  const dispatch = useDispatch();
   return (
-    <div className="max-w-4xl">
+    <div className="max-w-4xl mt-2">
       {isShow ? (
         <button className="w-[70vw]" onClick={() => setIsShow(false)}>
           <div className="flex justify-between shadow-md p-2 items-center">
@@ -62,7 +65,12 @@ const ItemCategory = ({ category }) => {
                 item.card.info.imageId
               }
             />
-            <button className="absolute top-[90%] left-[50%] transform -translate-x-1/2 bg-white shadow-xl text-green-500 font-bold p-[0.5vmax] px-[3vmax] rounded-lg text-[1.2vw]">
+            <button
+              className="absolute top-[90%] left-[50%] transform -translate-x-1/2 bg-white shadow-xl text-green-500 font-bold p-[0.5vmax] px-[3vmax] rounded-lg text-[1.2vw]"
+              onClick={() => {
+                dispatch(addItem(item.card.info));
+              }}
+            >
               ADD
             </button>
           </div>
