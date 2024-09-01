@@ -31,7 +31,11 @@ const Body = () => {
   const isOnline = useOnlineStatus();
 
   if (!isOnline) {
-    return <h1>offline</h1>;
+    return (
+      <h1 className="flex justify-center items-center text-3xl font-bold min-h-[98vh]">
+        Offline
+      </h1>
+    );
   }
 
   if (!allRestaurant)

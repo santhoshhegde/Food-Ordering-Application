@@ -21,7 +21,7 @@ const RestaurantMenu = () => {
       category.card.card["@type"] ===
       "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
   );
-  console.log(restaurantMenu);
+  // console.log(restaurantMenu);
   // console.log(
   //   "aksjdhfkjsdf" + categories[0].card.card.itemCards[0].card.info.name
   // );

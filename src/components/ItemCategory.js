@@ -43,6 +43,7 @@ const ItemCategory = ({ category }) => {
             ) : (
               <img src={nonveg} alt="red dot" className="h-4" />
             )}
+            {console.log(item)}
             <h3 className="text-l font-bold">{item.card.info.name}</h3>
             <p className="font-semibold">{"₹" + item.card.info.price / 100}</p>
             {item.card.info.ratings.aggregatedRating.rating ? (
