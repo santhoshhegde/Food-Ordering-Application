@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import UserContext from "../../utils/UserContext";
+// import UserContext from "../../utils/UserContext";
 import { useSelector } from "react-redux";
 import Logo from "../Assets/logo.png";
+import CartLogo from "../Assets/svg/shopping-cart.svg";
 
 const Header = () => {
   // const { user } = useContext(UserContext);
@@ -28,7 +29,15 @@ const Header = () => {
             <Link to="instamart">Instamart</Link>
           </li>
           <li className="p-3">
-            <Link to="cart">Cart-{cartItemLength}-items</Link>
+            <Link to="cart">
+              <span className="flex relative text-center justify-center">
+                <p>Cart</p>
+                <img src={CartLogo} className="h-9" />
+                <span className="text-white font-bold absolute left-[2.6rem] ">
+                  {cartItemLength}
+                </span>
+              </span>
+            </Link>
           </li>
         </ul>
       </nav>

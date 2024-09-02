@@ -43,9 +43,15 @@ const ItemCategory = ({ category }) => {
             ) : (
               <img src={nonveg} alt="red dot" className="h-4" />
             )}
-            {console.log(item)}
             <h3 className="text-l font-bold">{item.card.info.name}</h3>
-            <p className="font-semibold">{"₹" + item.card.info.price / 100}</p>
+            <p className="font-semibold">
+              {"₹" +
+                (item.card.info.price
+                  ? item.card.info.price / 100
+                  : item.card.info.defaultPrice
+                  ? item.card.info.defaultPrice / 100
+                  : "")}
+            </p>
             {item.card.info.ratings.aggregatedRating.rating ? (
               <p className="text-sm text-green-700 font-bold">
                 {item.card.info.ratings.aggregatedRating.rating}(
@@ -58,14 +64,18 @@ const ItemCategory = ({ category }) => {
             <p className="text-gray-700">{item.card.info.description}</p>
           </div>
           <div className="relative">
-            <img
-              className="w-[60vw] sm:w-[30vw] md:w-[20vw] lg:w-[13vmax] rounded-lg"
-              alt="img"
-              src={
-                "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/" +
-                item.card.info.imageId
-              }
-            />
+            {item.card.info.imageId ? (
+              <img
+                className="w-[60vw] sm:w-[30vw] md:w-[20vw] lg:w-[13vmax] h-40 rounded-lg object-fill"
+                alt="img"
+                src={
+                  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/" +
+                  item.card.info.imageId
+                }
+              />
+            ) : (
+              <div className="w-[60vw] sm:w-[30vw] md:w-[20vw] lg:w-[13vmax] h-40"></div>
+            )}
             <button
               className="absolute top-[90%] left-[50%] transform -translate-x-1/2 bg-white shadow-xl text-green-500 font-bold p-[0.5vmax] px-[3vmax] rounded-lg text-[1.2vw]"
               onClick={() => {
