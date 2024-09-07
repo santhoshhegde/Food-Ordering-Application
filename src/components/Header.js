@@ -15,7 +15,7 @@ const Header = () => {
         <img src={Logo} className="h-14" />
       </a>
       <nav>
-        <ul className="flex">
+        <ul className="flex items-center">
           <li className="p-3">
             <Link to="/">Home</Link>
           </li>
@@ -30,23 +30,25 @@ const Header = () => {
           </li>
           <li className="p-3">
             <Link to="cart">
-              <span className="flex relative text-center justify-center">
+              <span className="flex relative items-center justify-center">
                 <p>Cart</p>
-                <img src={CartLogo} className="h-9" />
-                <span className="text-white font-bold absolute left-[2.6rem] ">
+                <img src={CartLogo} alt="Cart Logo" className="h-9" />
+                <span className="text-white font-bold text-[2vmin] absolute top-2 right-3">
                   {cartItemLength}
                 </span>
               </span>
             </Link>
           </li>
+          <li>
+            {isLoggedIn ? (
+              <button onClick={() => setIsLoggedIn(false)}>LogOut</button>
+            ) : (
+              <button onClick={() => setIsLoggedIn(true)}>LogIn</button>
+            )}
+          </li>
         </ul>
       </nav>
       {/* <div>{user.fName}</div> */}
-      {isLoggedIn ? (
-        <button onClick={() => setIsLoggedIn(false)}>LogOut</button>
-      ) : (
-        <button onClick={() => setIsLoggedIn(true)}>LogIn</button>
-      )}
     </header>
   );
 };

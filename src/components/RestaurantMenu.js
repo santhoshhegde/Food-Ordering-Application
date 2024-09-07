@@ -28,10 +28,10 @@ const RestaurantMenu = () => {
   return !restaurantMenu ? (
     <Shimmer />
   ) : (
-    <div className="mt-24 flex flex-col items-center min-h-svh">
+    <div className="mt-24 flex flex-col items-center min-h-svh min-w-[320px]">
       {/* <h1>RestaurantMenu : {restId}</h1> */}
       <div>
-        <div className="bg-black w-[70vw] flex items-center">
+        <div className="bg-black max-w-[64rem] flex items-center">
           <img
             src={
               imga + restaurantMenu.cards[2].card.card.info.cloudinaryImageId

@@ -12,7 +12,7 @@ const ItemCategory = ({ category }) => {
   return (
     <div className="max-w-4xl mt-2">
       {isShow ? (
-        <button className="w-[70vw]" onClick={() => setIsShow(false)}>
+        <button className="w-full" onClick={() => setIsShow(false)}>
           <div className="flex justify-between shadow-md p-2 items-center">
             <h2 className="font-bold">
               {category.card.card.title}({category.card.card.itemCards.length})
