@@ -18,7 +18,7 @@ const Body = () => {
 
   async function getRestaurant() {
     const response = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.96340&lng=77.58550&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9400912&lng=77.5300291&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     ).catch((err) => console.log(err));
     const json = await response.json().catch((e) => console.log(e));
     setAllRestaurant(
@@ -31,7 +31,11 @@ const Body = () => {
   const isOnline = useOnlineStatus();
 
   if (!isOnline) {
-    return <h1>offline</h1>;
+    return (
+      <h1 className="flex justify-center items-center text-3xl font-bold min-h-[98vh]">
+        Offline
+      </h1>
+    );
   }
 
   if (!allRestaurant)
