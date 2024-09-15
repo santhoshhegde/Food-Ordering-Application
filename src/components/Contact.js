@@ -1,7 +1,7 @@
 const Contact = () => {
   return (
     <>
-      <div className="min-h-[75vh] mt-24 flex flex-col items-center gap-6">
+      <div className="min-h-[calc(100vh-6rem)] mt-24 flex flex-col items-center gap-6">
         <h1 className="text-3xl font-bold">Contact Us</h1>
         <input
           type="text"
