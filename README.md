@@ -3,6 +3,11 @@
 Welcome to the **Food Ordering Application**, a highly scalable, performant, and visually appealing platform that redefines how users browse and order food. Built with a focus on clean architecture, robust testing, and an exceptional user experience, this app is a testament to modern web development techniques.
 
 ---
+## 🌐 Deployed Link
+
+You can access the live application here:  
+🔗 [https://meal-mafia-santhoshs-projects-d6359787.vercel.app/](https://meal-mafia-santhoshs-projects-d6359787.vercel.app/)
+
 
 ## 🚀 Features
 
