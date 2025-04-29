@@ -1,10 +1,10 @@
 import Restaurant from "./Restaurant";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../../utils/Hooks/useOnlineStatus";
 import { search } from "../../utils/helper";
-import UserContext from "../../utils/UserContext";
+import { HOME_API } from "../../utils/Hooks/apiConstants";
 
 const Body = () => {
   const [searchText, setSearchText] = useState("");
@@ -17,16 +17,20 @@ const Body = () => {
   }, []);
 
   async function getRestaurant() {
-    const response = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9400912&lng=77.5300291&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    ).catch((err) => console.log(err));
-    const json = await response.json().catch((e) => console.log(e));
-    setAllRestaurant(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setFiltered(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+    try {
+      const response = await fetch(HOME_API).catch((err) => console.log(err));
+      const json = await response.json().catch((e) => console.log(e));
+      setAllRestaurant(
+        json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
+      setFiltered(
+        json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
+    } catch (err) {
+      console.log(err);
+    }
   }
   const isOnline = useOnlineStatus();
 
