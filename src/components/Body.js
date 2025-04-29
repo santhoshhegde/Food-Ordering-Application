@@ -4,7 +4,7 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../../utils/Hooks/useOnlineStatus";
 import { search } from "../../utils/helper";
-import { HOME_API } from "../../utils/Hooks/apiConstants";
+import { HOME_API } from "../../utils/apiConstants";
 
 const Body = () => {
   const [searchText, setSearchText] = useState("");
