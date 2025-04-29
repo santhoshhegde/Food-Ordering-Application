@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./src/components/Header";
 import Body from "./src/components/Body";
@@ -13,7 +13,7 @@ import { Provider } from "react-redux";
 import Cart from "./src/components/Cart";
 
 const Instamart = lazy(() => import("./src/components/Instamart"));
-AppLayout = () => {
+const AppLayout = () => {
   return (
     <Provider store={store}>
       <Header />
